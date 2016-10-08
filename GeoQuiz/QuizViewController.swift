@@ -37,5 +37,17 @@ class QuizViewController: UIViewController {
     @IBAction func flagButtonPressed(sender: UIButton) {
 
         // TODO: Add code to display a message to the user telling them whether or not they guessed correctly.
+        var findingLanguage = false
+        for languageChoice in languageChoices {
+            if languageChoice.languageName == sender.currentTitle && languageChoice.textToSpeak == spokenText {
+                findingLanguage = true
+                break
+            }
+        }
+        if findingLanguage {
+            displayAlert("Correct", messageText: "Right on!")
+        } else {
+            displayAlert("Wrong", messageText: "You are guessing wrong country!")
+        }
     }
 }
